@@ -30,7 +30,8 @@
 					<img src="{{ asset('back/login/assets/images/img-01.png') }}" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form method="post" class="login100-form validate-form">
+					@csrf
 					<span class="login100-form-title">
 						Giriş
 					</span>

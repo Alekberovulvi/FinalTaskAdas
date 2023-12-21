@@ -24,12 +24,13 @@ class BrandsController extends Controller
         return view('admin.brands.create', compact('img'));
     }
 
-    public function store(ImageUploadRequest $request){
+    public function store(Request $request){
+      
         $request->validate([
-        'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'img' => 'required|image|mimes:jpeg,png,jpg,gif',
     ]);
-       if ($request->hasFile('file')) {
-            $img = $request->file;
+       if ($request->hasFile('img')) {
+            $img = $request->img;
             $extension = $img->getClientOriginalExtension();
             $randomName = Str::random(10);
             $imagePath = 'front/assets/image/';
@@ -53,8 +54,9 @@ class BrandsController extends Controller
 
     public function update(Request $request,$id){
 
+       
          $request->validate([
-        'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'img' => 'image|mimes:jpeg,png,jpg,gif,svg',
             ]);
 
 

@@ -20,6 +20,7 @@
                     <a href="@route('images.index')" class="nav-item nav-link @ca('images.index')"><i class="fa fa-table me-2"></i>Şəkillər</a>
                     <a href="@route('products.index')" class="nav-item nav-link @ca('products.index')"><i class="fa fa-chart-bar me-2"></i>Products</a>
                     <a href="@route('brands.index')" class="nav-item nav-link @ca('brands.index')"><i class="fa fa-chart-bar me-2"></i>Other Img</a>
+                    <a href="@route('shop.index')" class="nav-item nav-link @ca('shop.index')"><i class="fa fa-chart-bar me-2"></i>Shop</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">

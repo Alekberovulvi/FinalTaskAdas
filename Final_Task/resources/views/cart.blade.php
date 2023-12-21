@@ -17,293 +17,225 @@
 				</div>
 			</div>
 		</section>
-		<!-- Cart Page Start -->
-		<main class="cart-page-main-block inner-page-sec-padding-bottom">
-			<div class="cart_area cart-area-padding  ">
-				<div class="container">
-					<div class="page-section-title">
-						<h1>Shopping Cart</h1>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<form action="#" class="">
-								<!-- Cart Table -->
-								<div class="cart-table table-responsive mb--40">
-									<table class="table">
-										<!-- Head Row -->
-										<thead>
-											<tr>
-												<th class="pro-remove"></th>
-												<th class="pro-thumbnail">Image</th>
-												<th class="pro-title">Product</th>
-												<th class="pro-price">Price</th>
-												<th class="pro-quantity">Quantity</th>
-												<th class="pro-subtotal">Total</th>
-											</tr>
-										</thead>
-										<tbody>
-											<!-- Product Row -->
-											<tr>
-												<td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
-												</td>
-												<td class="pro-thumbnail"><a href="#"><img
-															src="{{ asset('front/assets/image/products/product-1.jpg')}}" alt="Product"></a></td>
-												<td class="pro-title"><a href="#">Rinosin Glasses</a></td>
-												<td class="pro-price"><span>$395.00</span></td>
-												<td class="pro-quantity">
-													<div class="pro-qty">
-														<div class="count-input-block">
-															<input type="number" class="form-control text-center"
-																value="1">
-														</div>
-													</div>
-												</td>
-												<td class="pro-subtotal"><span>$395.00</span></td>
-											</tr>
-											<!-- Product Row -->
-											<tr>
-												<td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
-												</td>
-												<td class="pro-thumbnail"><a href="#"><img
-															src="{{ asset('front/assets/image/products/product-2.jpg')}}" alt="Product"></a></td>
-												<td class="pro-title"><a href="#">Rinosin Glasses</a></td>
-												<td class="pro-price"><span>$395.00</span></td>
-												<td class="pro-quantity">
-													<div class="pro-qty">
-														<div class="count-input-block">
-															<input type="number" class="form-control text-center"
-																value="1">
-														</div>
-													</div>
-												</td>
-												<td class="pro-subtotal"><span>$395.00</span></td>
-											</tr>
-											<!-- Discount Row  -->
-											
-										</tbody>
-									</table>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="cart-section-2">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-12 mb--30 mb-lg--0">
-							<!-- slide Block 5 / Normal Slider -->
-							<div class="cart-block-title">
-								<h2>YOU MAY BE INTERESTED IN…</h2>
-							</div>
-							<div class="product-slider sb-slick-slider" data-slick-setting='{
-							          "autoplay": true,
-							          "autoplaySpeed": 8000,
-							          "slidesToShow": 2
-									  }' data-slick-responsive='[
-                {"breakpoint":992, "settings": {"slidesToShow": 2} },
-                {"breakpoint":768, "settings": {"slidesToShow": 3} },
-                {"breakpoint":575, "settings": {"slidesToShow": 2} },
-                {"breakpoint":480, "settings": {"slidesToShow": 1} },
-                {"breakpoint":320, "settings": {"slidesToShow": 1} }
-            ]'>
-								<div class="single-slide">
-									<div class="product-card">
-										<div class="product-header">
-											<span class="author">
-												Lpple
-											</span>
-											<h3><a href="{{route('client.shop.detail', 'slug')}}">Revolutionize Your BOOK With These
-													Easy-peasy Tips</a></h3>
-										</div>
-										<div class="product-card--body">
-											<div class="card-image">
-												<img src="{{ asset('front/assets/image/products/product-10.jpg')}}" alt="">
-												<div class="hover-contents">
-													<a href="{{route('client.shop.detail', 'slug')}}" class="hover-image">
-														<img src="{{ asset('front/assets/image/products/product-1.jpg')}}" alt="">
-													</a>
-													<div class="hover-btns">
-														<a href="{{ route('client.cart')}}" class="single-btn">
-															<i class="fas fa-shopping-basket"></i>
-														</a>
-														<a href="{{ route('client.wishlist')}}" class="single-btn">
-															<i class="fas fa-heart"></i>
-														</a>
-														
-													</div>
-												</div>
-											</div>
-											<div class="price-block">
-												<span class="price">£51.20</span>
-												<del class="price-old">£51.20</del>
-												<span class="price-discount">20%</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="single-slide">
-									<div class="product-card">
-										<div class="product-header">
-											<span class="author">
-												Jpple
-											</span>
-											<h3><a href="{{route('client.shop.detail', 'slug')}}">Turn Your BOOK Into High Machine</a></h3>
-										</div>
-										<div class="product-card--body">
-											<div class="card-image">
-												<img src="{{ asset('front/assets/image/products/product-2.jpg')}}" alt="">
-												<div class="hover-contents">
-													<a href="{{route('client.shop.detail', 'slug')}}" class="hover-image">
-														<img src="{{ asset('front/assets/image/products/product-1.jpg')}}" alt="">
-													</a>
-													<div class="hover-btns">
-														<a href="{{ route('client.cart')}}" class="single-btn">
-															<i class="fas fa-shopping-basket"></i>
-														</a>
-														<a href="{{ route('client.wishlist')}}" class="single-btn">
-															<i class="fas fa-heart"></i>
-														</a>
-														
-													</div>
-												</div>
-											</div>
-											<div class="price-block">
-												<span class="price">£51.20</span>
-												<del class="price-old">£51.20</del>
-												<span class="price-discount">20%</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="single-slide">
-									<div class="product-card">
-										<div class="product-header">
-											<span class="author">
-												Wpple
-											</span>
-											<h3><a href="{{route('client.shop.detail', 'slug')}}">3 Ways Create Better BOOK With</a></h3>
-										</div>
-										<div class="product-card--body">
-											<div class="card-image">
-												<img src="{{ asset('front/assets/image/products/product-3.jpg')}}" alt="">
-												<div class="hover-contents">
-													<a href="{{route('client.shop.detail', 'slug')}}" class="hover-image">
-														<img src="{{ asset('front/assets/image/products/product-2.jpg')}}" alt="">
-													</a>
-													<div class="hover-btns">
-														<a href="{{ route('client.cart')}}" class="single-btn">
-															<i class="fas fa-shopping-basket"></i>
-														</a>
-														<a href="{{ route('client.wishlist')}}" class="single-btn">
-															<i class="fas fa-heart"></i>
-														</a>
-														
-													</div>
-												</div>
-											</div>
-											<div class="price-block">
-												<span class="price">£51.20</span>
-												<del class="price-old">£51.20</del>
-												<span class="price-discount">20%</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="single-slide">
-									<div class="product-card">
-										<div class="product-header">
-											<span class="author">
-												Epple
-											</span>
-											<h3><a href="{{route('client.shop.detail', 'slug')}}">What You Can Learn From Bill Gates</a>
-											</h3>
-										</div>
-										<div class="product-card--body">
-											<div class="card-image">
-												<img src="{{ asset('front/assets/image/products/product-5.jpg')}}" alt="">
-												<div class="hover-contents">
-													<a href="{{route('client.shop.detail', 'slug')}}" class="hover-image">
-														<img src="{{ asset('front/assets/image/products/product-4.jpg')}}" alt="">
-													</a>
-													<div class="hover-btns">
-														<a href="{{ route('client.cart')}}" class="single-btn">
-															<i class="fas fa-shopping-basket"></i>
-														</a>
-														<a href="{{ route('client.wishlist')}}" class="single-btn">
-															<i class="fas fa-heart"></i>
-														</a>
-														
-													</div>
-												</div>
-											</div>
-											<div class="price-block">
-												<span class="price">£51.20</span>
-												<del class="price-old">£51.20</del>
-												<span class="price-discount">20%</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="single-slide">
-									<div class="product-card">
-										<div class="product-header">
-											<span class="author">
-												Hpple
-											</span>
-											<h3><a href="{{route('client.shop.detail', 'slug')}}">Simple Things You To Save BOOK</a></h3>
-										</div>
-										<div class="product-card--body">
-											<div class="card-image">
-												<img src="{{ asset('front/assets/image/products/product-6.jpg')}}" alt="">
-												<div class="hover-contents">
-													<a href="{{route('client.shop.detail', 'slug')}}" class="hover-image">
-														<img src="{{ asset('front/assets/image/products/product-4.jpg')}}" alt="">
-													</a>
-													<div class="hover-btns">
-														<a href="{{ route('client.cart')}}" class="single-btn">
-															<i class="fas fa-shopping-basket"></i>
-														</a>
-														<a href="{{ route('client.wishlist')}}" class="single-btn">
-															<i class="fas fa-heart"></i>
-														</a>
-														
-													</div>
-												</div>
-											</div>
-											<div class="price-block">
-												<span class="price">£51.20</span>
-												<del class="price-old">£51.20</del>
-												<span class="price-discount">20%</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Cart Summary -->
-						<div class="col-lg-6 col-12 d-flex">
-							<div class="cart-summary">
-								<div class="cart-summary-wrap">
-									<h4><span>Cart Summary</span></h4>
-									<p>Sub Total <span class="text-primary">$1250.00</span></p>
-									<p>Shipping Cost <span class="text-primary">$00.00</span></p>
-									<h2>Grand Total <span class="text-primary">$1250.00</span></h2>
-								</div>
-								<div class="cart-summary-button">
-									<a href="{{ route('client.checkout')}}" class="checkout-btn c-btn btn--primary">Checkout</a>
-									<button class="update-btn c-btn btn-outlined">Update Cart</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
-		<!-- Cart Page End -->
-	</div>
-	<!--=================================
-  Brands Slider
-===================================== -->
+		<section class="h-100 h-custom" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card">
+          <div class="card-body p-4">
+
+            <div class="row">
+
+              <div class="col-lg-7">
+                <hr>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p class="mb-1">Shopping cart</p>
+                    <p class="mb-0">You have 4 items in your cart</p>
+                  </div>
+                  <div>
+                    <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
+                        class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="{{ asset('front/assets/image/products/product-1.jpg')}}"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>Iphone 11 pro</h5>
+                          <p class="small mb-0">256GB, Navy Blue</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$900</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="{{ asset('front/assets/image/products/product-2.jpg')}}"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>Samsung galaxy Note 10 </h5>
+                          <p class="small mb-0">256GB, Navy Blue</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$900</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="{{ asset('front/assets/image/products/product-10.jpg')}}"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>Canon EOS M50</h5>
+                          <p class="small mb-0">Onyx Black</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">1</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$1199</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3 mb-lg-0">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="{{ asset('front/assets/image/products/product-2.jpg')}}"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>MacBook Pro</h5>
+                          <p class="small mb-0">1TB, Graphite</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">1</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$1799</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-lg-5">
+
+                <div class="card bg-primary text-white rounded-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5 class="mb-0">Card details</h5>
+                      <img src="{{ asset('front/assets/image/products/product-3.jpg')}}"
+                        class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
+                    </div>
+
+                    <p class="small mb-2">Card type</p>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-visa fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-amex fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
+
+                    <form class="mt-4">
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                          placeholder="Cardholder's Name" />
+                        <label class="form-label" for="typeName">Cardholder's Name</label>
+                      </div>
+
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Card Number</label>
+                      </div>
+
+                      <div class="row mb-4">
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input type="text" id="typeExp" class="form-control form-control-lg"
+                              placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
+                            <label class="form-label" for="typeExp">Expiration</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input type="password" id="typeText" class="form-control form-control-lg"
+                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                            <label class="form-label" for="typeText">Cvv</label>
+                          </div>
+                        </div>
+                      </div>
+
+                    </form>
+
+                    <hr class="my-4">
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Subtotal</p>
+                      <p class="mb-2">$4798.00</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Shipping</p>
+                      <p class="mb-2">$20.00</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                      <p class="mb-2">Total(Incl. taxes)</p>
+                      <p class="mb-2">$4818.00</p>
+                    </div>
+
+                    <button type="button" class="btn btn-info btn-block btn-lg">
+                      <div class="d-flex justify-content-between">
+                        <span>$4818.00</span>
+                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                      </div>
+                    </button>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 	
 @endsection

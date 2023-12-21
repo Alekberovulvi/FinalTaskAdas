@@ -39,5 +39,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('slides', function ($route) {
             return "{{ route('admin.'.$route)}}";
         });
+        Blade::directive('shop', function ($route) {
+            return "{{ route('admin.'.$route)}}";
+        });
     }
 }

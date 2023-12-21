@@ -35,58 +35,34 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Adıınız</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    <label class="label">Name</label>
+                                    <input class="input--style-4" type="text" name="name" required>
                                 </div>
                             </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Soyadınız</label>
-                                    <input class="input--style-4" type="text" name="last_name">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Doğum Günü</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Cins</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Kişi
-                                            <input type="radio" checked="checked" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Qadın
-                                            <input type="radio" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input class="input--style-4" type="email" name="email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Password</label>
+                                    <input class="input--style-4" type="password" name="password" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Telefon nömrəsi</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <label class="label">Confirm Password</label>
+                                    <input class="input--style-4" type="password" name="c-password" required>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div style="gap:30px; display:flex" class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Təsdiq Et</button>
                             <a href="{{ route('client.login')}}" class="btn btn--radius-2 btn--blue" type="submit" style="text-decoration:none; background: red">Girişə Qayıdın</a>

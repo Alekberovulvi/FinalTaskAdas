@@ -413,7 +413,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="price-block">
-                                                                <span class="price">£{{$image->price}}</span>
+                                                                <span class="price">₼{{$image->price}}</span>
                                                                 <span class="price-discount">{{$image->percent}}%</span>
                                                             </div>
                                                         </div>
