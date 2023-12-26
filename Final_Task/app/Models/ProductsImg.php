@@ -9,6 +9,6 @@ class ProductsImg extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['author', 'title', 'img', 'price', 'percent'];
+    protected $guarded = [];
 
 }

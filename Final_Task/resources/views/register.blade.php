@@ -30,20 +30,33 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">Qeydiyyat</h2>
-                    <form method="POST">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('success') }}
+                    </div>
+                    @endif
+                    <h2 class="title">Sign Up</h2>
+                    <form method="POST" action={{ route('client.register')}}>
+                        @csrf
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Name</label>
+                                    <label class="label">UserName</label>
                                     <input class="input--style-4" type="text" name="name" required>
                                 </div>
+                                @error('name')
+                                {{$message}}
+                                @enderror
                             </div>
+
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Email</label>
                                     <input class="input--style-4" type="email" name="email" required>
                                 </div>
+                                @error('email')
+                                {{$message}}
+                                @enderror
                             </div>
                         </div>
                         <div class="row row-space">
@@ -54,18 +67,25 @@
                                     <label class="label">Password</label>
                                     <input class="input--style-4" type="password" name="password" required>
                                 </div>
+                                @error('password')
+                                {{$message}}
+                                @enderror
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Confirm Password</label>
-                                    <input class="input--style-4" type="password" name="c-password" required>
+                                    <input class="input--style-4" type="password" name="cpassword" required>
                                 </div>
+                                @error('cpassword')
+                                {{$message}}
+                                @enderror
                             </div>
+
                         </div>
 
                         <div style="gap:30px; display:flex" class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Təsdiq Et</button>
-                            <a href="{{ route('client.login')}}" class="btn btn--radius-2 btn--blue" type="submit" style="text-decoration:none; background: red">Girişə Qayıdın</a>
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <a href="{{ route('client.login')}}" class="btn btn--radius-2 btn--blue" type="submit" style="text-decoration:none; background: red">Return To Login</a>
                         </div>
                     </form>
                 </div>

@@ -41,14 +41,15 @@ class BookController extends Controller
         $categories = Category::findorFail($id);
         $categories->update([
             'title' => $request->input('title'),
-            'up_id' => $request->input('up_id')
+            'up_id' => $request->input('up_id'),
+            'slug' => Str::slug($request->title)
         ]);
 
         return redirect()->route('admin.books.index')->with('success', 'Kitab uğurla düzəltildi.');
     }
 
 
-    
+
     public function store(Request $request){
         $request->validate([
         'title' => 'required|string|max:255',
@@ -58,10 +59,10 @@ class BookController extends Controller
     $data = $request->all();
     $data['slug'] = Str::slug($request->title);
     Category::create($data);
-  
+
 
     return redirect()->route('admin.books.index')->with('success', 'Kitab uğurla əlavə edildi.');
 
     }
-     
+
 }
