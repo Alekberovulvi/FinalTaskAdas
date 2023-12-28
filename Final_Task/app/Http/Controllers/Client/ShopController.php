@@ -19,22 +19,19 @@ class ShopController extends Controller
             $products = ProductsImg::all();
         }
 
-        // dd($foundCategory   );
-
-        // dd($slug);
-
         return view('shop', compact('products'));
     }
 
 
     public function detail($id)
     {
-        $product = Products::find($id);
 
+
+        $product = ProductsImg::findOrFail($id);
         if (!$product) {
             return abort(404);
         }
 
-        return view('shop.shop_details', compact('product'));
+        return view('shop_details', compact('product'));
     }
 }

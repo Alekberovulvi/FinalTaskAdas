@@ -33,7 +33,7 @@
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="{{ asset('back/login/assets/images/img-01.png') }}" alt="IMG">
                 </div>
-                <form action="{{ route('client.login')}}" method="POST" class="login100-form validate-form">
+                <form action="{{ route('client.loginPost')}}" method="POST" class="login100-form validate-form">
                     @csrf
                     <div class="card-body">
                         @if(Session::has('error'))

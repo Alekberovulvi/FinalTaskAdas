@@ -127,13 +127,13 @@
                             <a href="" class="author">
                                 {{$product->author}}
                             </a>
-                            <h3><a href="{{route('client.shop.detail', 'slug')}}">{{$product->title}}</a></h3>
+                            <h3><a href="{{route('client.shop.detail', $product->id)}}">{{$product->title}}</a></h3>
                         </div>
                         <div class="product-card--body">
                             <div class="card-image">
                                 <img src="{{ asset($product->img)}}" alt="">
                                 <div class="hover-contents">
-                                    <a href="{{route('client.shop.detail', 'slug')}}" class="hover-image">
+                                    <a href="{{route('client.shop.detail', $product->id)}}" class="hover-image">
                                         <img src="{{ asset($product->img)}}" alt="">
                                     </a>
                                     <div class="hover-btns">

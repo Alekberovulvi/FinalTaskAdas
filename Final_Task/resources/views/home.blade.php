@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             @endforeach
-                           
+
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
         <!--=================================
         Home Features Section
     ===================================== -->
-     
+
         <!--=================================
         Home Category Gallery
     ===================================== -->
@@ -335,9 +335,9 @@
                                     </div>
                                 </div>
                             </div>
-                           
-                            
-                            
+
+
+
                         </div>
                     </div>
                     <div class="col-lg-8">
@@ -420,7 +420,7 @@
                                                     </div>
                                                 </div>
                     @endforeach
-                                                
+
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="men" role="tabpanel" aria-labelledby="men-tab">
@@ -437,7 +437,7 @@
                             {"breakpoint":480, "settings": {"slidesToShow": 1} },
                             {"breakpoint":320, "settings": {"slidesToShow": 1} }
                         ]'>
-                                              
+
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="woman" role="tabpanel" aria-labelledby="woman-tab">
@@ -454,15 +454,15 @@
                                         {"breakpoint":480, "settings": {"slidesToShow": 1} },
                                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                                     ]'>
-                                              
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                           
-                            
+
+
+
                         </div>
                     </div>
                 </div>
@@ -582,7 +582,7 @@
                                     </div>
                                     <div class="compare-wishlist-row">
                                         <a href="" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -609,5 +609,5 @@
     <!--=================================
   Brands Slider
 ===================================== -->
-   
+
 @endsection

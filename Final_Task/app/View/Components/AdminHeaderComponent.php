@@ -21,6 +21,7 @@ class AdminHeaderComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin-header-component');
+        $user = auth()->user();
+        return view('components.admin-header-component', compact('user'));
     }
 }
