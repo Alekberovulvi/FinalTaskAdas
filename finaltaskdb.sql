@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 28, 2023 at 10:36 AM
+-- Generation Time: Jan 16, 2024 at 09:25 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -37,6 +37,13 @@ CREATE TABLE `admin_users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admin_users`
+--
+
+INSERT INTO `admin_users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Ulvi Alekberov', 'elekberovulvi520@gmail.com', NULL, 'ulvifcbgts', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -201,7 +208,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (32, '2023_12_27_082925_create_admin_users_table', 16),
 (33, '2023_12_28_065310_update_users_table', 17),
 (34, '2023_12_28_091222_create_orders_table', 18),
-(35, '2023_12_28_100734_create_carts_table', 19);
+(35, '2023_12_28_100734_create_carts_table', 19),
+(36, '2024_01_06_131023_create_order_items_table', 20);
 
 -- --------------------------------------------------------
 
@@ -214,6 +222,23 @@ CREATE TABLE `orders` (
   `user_id` bigint UNSIGNED NOT NULL,
   `total_amount` decimal(8,2) NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_items`
+--
+
+CREATE TABLE `order_items` (
+  `id` bigint UNSIGNED NOT NULL,
+  `order_id` bigint UNSIGNED NOT NULL,
+  `product_id` bigint UNSIGNED NOT NULL,
+  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantity` int NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -435,6 +460,13 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_items_order_id_foreign` (`order_id`);
+
+--
 -- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -493,7 +525,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `books`
@@ -535,12 +567,18 @@ ALTER TABLE `imgs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -584,6 +622,16 @@ ALTER TABLE `updated`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `order_items_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

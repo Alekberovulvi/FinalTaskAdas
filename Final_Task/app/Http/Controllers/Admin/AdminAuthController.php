@@ -24,12 +24,7 @@ class AdminAuthController extends Controller
             return redirect()->route('admin.dashboard.index');
         }
 
-        return redirect()->route('admin.login')->withErrors(['loginError' => 'Incorrect login credentials']);
+        return redirect()->route('authadmin.login')->withErrors(['loginError' => 'Incorrect login credentials']);
     }
 
-    public function logout()
-    {
-        Auth::guard('admin')->logout();
-        return redirect('admin.login');
-    }
 }

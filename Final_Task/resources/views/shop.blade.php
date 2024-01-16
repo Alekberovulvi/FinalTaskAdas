@@ -137,7 +137,7 @@
                                         <img src="{{ asset($product->img)}}" alt="">
                                     </a>
                                     <div class="hover-btns">
-                                        <a href="{{ route('client.cart')}}" class="single-btn">
+                                        <a href="{{ route('client.add',$product->id)}}" class="single-btn">
                                             <i class="fas fa-shopping-basket"></i>
                                         </a>
                                         <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">

@@ -4,51 +4,27 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ProductsImg;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
-    public function index(){
-        $cartItems = session('cart', []);
+    public function index()
+    {
+        $cartItems = Cart::content();
         return view('cart', ['cartItems' => $cartItems]);
     }
 
-    public function addToCart(Request $request)
+    public function add($id)
     {
-        $productId = $request->input('product_id');
-        $productName = $request->input('product_name');
-        $quantity = $request->input('quantity', 1);
-        $price = $request->input('price');
-
-        $cartItems = session('cart', []);
-
-        if(array_key_exists($productId, $cartItems)){
-            $cartItems[$productId]['quantity'] += $quantity;
-        }else{
-            $cartItems[$productId] = [
-                'product_id' => $productId,
-                'product_name' => $productName,
-                'quantity' => $quantity,
-                'price' => $price
-            ];
-        }
-
-        session(['cart' => $cartItems]);
-
-        return redirect()->route('cart.index');
+        $product = ProductsImg::where('id', $id)->first();
+        Cart::add(['id' => '1', 'name' => $product->title, 'qty' => 1, 'price' => $product->price, 'weight' => 550, 'options' => ['size' => 'large', 'image' => $product->img]]);
+        return redirect()->back();
     }
 
-    public function removeFromCart(Request $request)
+    public function remove($id)
     {
-        $productId = $request->input('product_id');
-
-        $cartItems = session('cart', []);
-
-        if(array_key_exists($productId, $cartItems)){
-            unset($cartItems[$productId]);
-            session(['cart' => $cartItems]);
-        }
-
-
-        return redirect()->route('cart.index');
+        Cart::remove($id);
+        return redirect()->back();
     }
 }

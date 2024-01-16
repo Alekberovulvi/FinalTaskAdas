@@ -10,6 +10,7 @@
              </div>
              <div class="ms-3">
                  <h6 class="mb-0">{{ $user->name}}</h6>
+                 <a href="{{ route('admin.logout')}}" class="font-weight-bold">Logout</a>
                  <span>Admin</span>
              </div>
          </div>
