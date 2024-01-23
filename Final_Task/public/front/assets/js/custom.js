@@ -78,7 +78,7 @@ jQuery(document).ready(function($) {
             });
         }
         /**********************
-         *Expand Category Mobile Menu 
+         *Expand Category Mobile Menu
          ***********************/
 
         function categoryMenuExpandInMobile() {
@@ -100,7 +100,7 @@ jQuery(document).ready(function($) {
             $(".search-dismiss,body").on('click', function(e) {
                 $(".search-wrapper").removeClass('open')
             })
-            // $("body").on('click', function () { 
+            // $("body").on('click', function () {
             // 	$(".search-wrapper").removeClass('open')
             // })
             $(".search-box,.search-trigger").on('click', function(e) {
@@ -359,7 +359,7 @@ jQuery(document).ready(function($) {
         	--> NIce Select
         ---------------------------------------*/
         $('.nice-select').niceSelect()
-        
+
 
         /*-------------------------------------
         	--> Product Sorting
@@ -475,7 +475,7 @@ jQuery(document).ready(function($) {
     ----------------------------------------------------*/
 	// // Initialize and add the map
 	// if($('#google-map').length){
-     
+
 	// 	function initMap() {
 	// 		// The location of Uluru
 	// 		var uluru = {lat: 21.0277214, lng: 105.8342015};
@@ -489,3 +489,32 @@ jQuery(document).ready(function($) {
 	// }
 
 });
+
+  document.addEventListener("DOMContentLoaded", function () {
+      document
+          .getElementById("checkoutForm")
+          .addEventListener("submit", function (event) {
+              var requiredFields = [
+                  "fname",
+                  "lname",
+                  "email",
+                  "phone",
+                  "address",
+                  "city",
+                  "state",
+                  "code",
+              ];
+              var formValid = true;
+
+              requiredFields.forEach(function (fieldName) {
+                  var field = document.getElementsByName(fieldName)[0];
+                  if (!field.value.trim()) {
+                      formValid = false;
+                      alert(fieldName + " is required!");
+                  }
+              });
+
+              if (!formValid) {
+              }
+          });
+  });

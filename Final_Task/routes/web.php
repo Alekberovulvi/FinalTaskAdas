@@ -45,6 +45,7 @@ Route::group(
         Route::get('/resetpassword', [AuthController::class, 'resetpassword'])->name('resetpassword');
         Route::post('/resetpassword', [AuthController::class, 'resetPasswordPost'])->name('passwordreset');
         Route::get('/checkout', [CheckOutController::class, 'index'])->name('checkout');
+        Route::post('/place-order', [CheckOutController::class, 'placeOrder'])->name('placeOrder');
     }
 );
 

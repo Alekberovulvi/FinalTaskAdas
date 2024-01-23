@@ -27,4 +27,5 @@ class CartController extends Controller
         Cart::remove($id);
         return redirect()->back();
     }
+
 }

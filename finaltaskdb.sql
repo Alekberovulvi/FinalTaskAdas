@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 16, 2024 at 09:25 AM
+-- Generation Time: Jan 23, 2024 at 07:21 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -397,7 +397,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `user_status`) VALUES
 (25, 'Alekberov99', 'elekberovulvi520@gmail.com', NULL, '$2y$12$b7iy7hY0V0r/bVPQRT6WNe.Ir0CUJTIKbfwgcJT6CWwdn4Y3Kt59e', NULL, '2023-12-22 03:54:24', '2023-12-22 05:16:17', 0),
 (26, 'Alekberov99', 'ulvina@code.edu.az', NULL, '$2y$12$KD7Rm38t851/QdnTHZszfeQLcLXjHdDYZcyBYopGguT2GNms29Cpi', NULL, '2023-12-22 09:46:53', '2023-12-22 09:46:53', 0),
-(27, 'Ulvi Alekberov', 'alekberovulvi520@gmail.com', NULL, '$2y$12$RTLX9ZcP6Yeoi5uMeZy0e.U/21sF60lQyVaLztPhq0zTDyg7j22Qq', NULL, NULL, NULL, 1);
+(27, 'Ulvi Alekberov', 'alekberovulvi520@gmail.com', NULL, '$2y$12$RTLX9ZcP6Yeoi5uMeZy0e.U/21sF60lQyVaLztPhq0zTDyg7j22Qq', NULL, NULL, NULL, 1),
+(28, 'ulvibom', 'alekberov@mail.ru', NULL, '$2y$12$8l8XD9b3/eCuBRqnyeMnb.Uzyt8HfhM0KXPWAR9cVZ4n3ZeWBvqNq', NULL, '2024-01-23 03:03:14', '2024-01-23 03:03:14', 0);
 
 --
 -- Indexes for dumped tables
@@ -621,7 +622,7 @@ ALTER TABLE `updated`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables

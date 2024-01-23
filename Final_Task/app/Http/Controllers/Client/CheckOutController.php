@@ -13,4 +13,11 @@ class CheckOutController extends Controller
         return view('checkout', ['cartItems' => $cartItems]);
     }
 
+    public function placeOrder(Request $request)
+    {
+        Cart::destroy();
+        return redirect()->route('client.index')->with('success', 'Books successfully ordered!');
+    }
+
+    
 }

@@ -36,7 +36,7 @@
                     </div>
                     @endif
                     <h2 class="title">Sign Up</h2>
-                    <form method="POST" action={{ route('client.register')}}>
+                    <form method="POST" action="{{ route('client.registerPost') }}">
                         @csrf
                         <div class="row row-space">
                             <div class="col-2">
