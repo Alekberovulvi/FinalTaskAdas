@@ -28,4 +28,23 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    public function addtoCart(Request $request, $id)
+    {
+        $cart = Cart::content();
+        $product = ProductsImg::where('id', $id)->first();
+        $productName = $product->title;
+        $newQty = (int)$request->qty;
+        $rowId = $cart->search(function ($cartItem, $rowId) use ($productName, &$newQty) {
+            if ($cartItem->name === $productName) {
+                $newQty += $cartItem->qty;
+            }
+            return $cartItem->name === $productName;
+        });
+        if ($rowId) {
+            Cart::update($rowId, $newQty);
+        } else {
+            Cart::add(['id' => '1', 'name' => $product->title, 'qty' => 1, 'price' => $product->price, 'weight' => 550, 'options' => ['size' => 'large', 'image' => $product->img]]);
+        }
+        return redirect()->back();
+    }
 }

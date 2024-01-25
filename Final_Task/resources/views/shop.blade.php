@@ -185,7 +185,6 @@
                             </div>
                             <div class="btn-block">
                                 <a href="" class="btn btn-outlined">Add To Cart</a>
-                                <a href="" class="card-link"><i class="fas fa-heart"></i> Add To Wishlist</a>
                                 <a href="" class="card-link"><i class="fas fa-random"></i> Add To Cart</a>
                             </div>
                         </div>
@@ -326,11 +325,7 @@
                                             <a href="" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
                                         </div>
                                     </div>
-                                    <div class="compare-wishlist-row">
-                                        <a href="" class="add-link"><i class="fas fa-heart"></i>Add to Wish
-                                            List</a>
 
-                                    </div>
                                 </div>
                             </div>
                         </div>

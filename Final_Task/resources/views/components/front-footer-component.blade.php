@@ -1,4 +1,4 @@
-    
+
      <section class="section-margin">
         <h2 class="sr-only">Brand Slider</h2>
         <div class="container">
@@ -18,13 +18,13 @@
 
                     <div class="single-slide">
                     <img src="{{ asset($image->img)}}" alt="">
-                </div>                            
+                </div>
             @endforeach
-                
+
             </div>
         </div>
     </section>
-    
+
     <footer class="site-footer">
         <div class="container">
             <div class="row justify-content-between  section-padding">
@@ -34,11 +34,9 @@
                             <img src="{{ asset('front/assets/image/logo--footer.png')}}" alt="">
                         </div>
                         <div class="footer-contact">
-                            <p><span class="label">Address:</span><span class="text">Example Street 98, HH2 BacHa, New
-                                    York,
-                                    USA</span></p>
-                            <p><span class="label">Phone:</span><span class="text">+18088 234 5678</span></p>
-                            <p><span class="label">Email:</span><span class="text">suport@hastech.com</span></p>
+                            <p><span class="label">Address:</span><span class="text">Mərdəkan</span></p>
+                            <p><span class="label">Phone:</span><span class="text">+99517295859</span></p>
+                            <p><span class="label">Email:</span><span class="text">alekberovulvi520@gmail.com</span></p>
                         </div>
                     </div>
                 </div>

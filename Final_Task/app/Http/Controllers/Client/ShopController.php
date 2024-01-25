@@ -25,8 +25,6 @@ class ShopController extends Controller
 
     public function detail($id)
     {
-
-
         $product = ProductsImg::findOrFail($id);
         if (!$product) {
             return abort(404);

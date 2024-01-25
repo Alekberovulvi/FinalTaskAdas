@@ -32,9 +32,9 @@
               "asNavFor": ".product-slider-nav"
               }'>
                     <div class="single-slide">
-                        <img src="{{ asset('front/assets/image/products/product-details-1.jpg')}}" alt="" />
+                        <img src="{{ asset($product->img)}}" alt="" />
                     </div>
-                    <div class="single-slide">
+                    <!-- <div class="single-slide">
                         <img src="{{ asset('front/assets/image/products/product-details-2.jpg')}}" alt="" />
                     </div>
                     <div class="single-slide">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="single-slide">
                         <img src="{{ asset('front/assets/image/products/product-details-5.jpg')}}" alt="" />
-                    </div>
+                    </div> -->
                 </div>
                 <!-- Product Details Slider Nav -->
                 <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two" data-slick-setting='{
@@ -59,10 +59,10 @@
               "asNavFor": ".product-details-slider",
               "focusOnSelect": true
               }'>
-                    <div class="single-slide">
-                        <img src="{{ asset('front/assets/image/products/product-details-1.jpg')}}" alt="" />
-                    </div>
-                    <div class="single-slide">
+                    <!-- <div class="single-slide">
+                        <img src="{{ asset($product->img)}}" alt="" />
+                    </div> -->
+                    <!-- <div class="single-slide">
                         <img src="{{ asset('front/assets/image/products/product-details-2.jpg')}}" alt="" />
                     </div>
                     <div class="single-slide">
@@ -73,7 +73,7 @@
                     </div>
                     <div class="single-slide">
                         <img src="{{ asset('front/assets/image/products/product-details-3.jpg')}}" alt="" />
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-lg-7">
@@ -82,23 +82,16 @@
                         Tags: <a href="#">Movado</a>, <a href="#">Omega</a>
                     </p>
                     <h3 class="product-title">
-                        Beats EP Wired On-Ear Headphone-Black
+                        {{$product->title}}
                     </h3>
                     <ul class="list-unstyled">
-                        <li>Ex Tax: <span class="list-value"> £60.24</span></li>
-                        <li>
-                            Brands:
-                            <a href="#" class="list-value font-weight-bold"> Canon</a>
-                        </li>
-                        <li>Product Code: <span class="list-value"> model1</span></li>
                         <li>Reward Points: <span class="list-value"> 200</span></li>
                         <li>
                             Availability: <span class="list-value"> In Stock</span>
                         </li>
                     </ul>
                     <div class="price-block">
-                        <span class="price-new">£73.79</span>
-                        <del class="price-old">£91.86</del>
+                        <span class="price-new">₼{{$product->price}}</span>
                     </div>
                     <div class="rating-widget">
                         <div class="rating-block">
@@ -116,23 +109,20 @@
                     <article class="product-details-article">
                         <h4 class="sr-only">Product Summery</h4>
                         <p>
-                            Long printed dress with thin adjustable straps. V-neckline
-                            and wiring under the Dust with ruffles at the bottom of the
-                            dress.
+                            Oxumaq Gözəldir
                         </p>
                     </article>
                     <div class="add-to-cart-row">
-                        <div class="count-input-block">
-                            <span class="widget-label">Qty</span>
-                            <input type="number" class="form-control text-center" value="1" />
-                        </div>
-                        <div class="add-cart-btn">
-                            <a href="" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="compare-wishlist-row">
-                        <a href="" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
-                        <a href="" class="add-link"><i class="fas fa-random"></i>Add to Compare</a>
+                        <form method="post" class="row" action="{{route('client.cartqty',$product->id)}}">
+                            @csrf
+                            <div class="count-input-block">
+                                <span class="widget-label">+</span>
+                                <input type="number" class="form-control text-center" name="qty" value="1" />
+                            </div>
+                            <div class="add-cart-btn">
+                                <button class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -155,16 +145,13 @@
                     <article class="review-article">
                         <h1 class="sr-only">Tab Article</h1>
                         <p>
-                            Fashion has been creating well-designed collections since
-                            2010. The brand offers feminine designs delivering stylish
-                            separates and statement dresses which have since evolved
-                            into a full ready-to-wear collection in which every item is
-                            a vital part of a woman's wardrobe. The result? Cool, easy,
-                            chic looks with youthful elegance and unmistakable signature
-                            style. All the beautiful pieces are made in Italy and
-                            manufactured with the greatest attention. Now Fashion
-                            extends to a range of accessories including shoes, hats,
-                            belts and more!
+                            It is not just a story; it's an invitation to introspection. Themes of love, resilience, and the pursuit of authenticity resonate throughout,
+                            making it a timeless addition to your reading list. Whether you're a fan of character-driven narratives, enjoy exploring the intricacies
+                            of the human experience, or simply crave a tale that leaves a lasting impression, this book promises to be a fulfilling and enriching read.
+                            Join the countless readers who have found solace, inspiration, and a
+                            renewed sense of purpose within these pages. It is more than a book; it's an odyssey that reminds us all of the extraordinary
+                            possibilities that lie within ourselves.
+
                         </p>
                     </article>
                 </div>
@@ -305,9 +292,6 @@
                                         <a href="{{ route('client.cart')}}" class="single-btn">
                                             <i class="fas fa-shopping-basket"></i>
                                         </a>
-                                        <a href="{{ route('client.wishlist')}}" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -333,7 +317,6 @@
                 <div class="product-details-modal">
                     <div class="row">
                         <div class="col-lg-5">
-                            <!-- Product Details Slider Big Image-->
                             <div class="product-details-slider sb-slick-slider arrow-type-two" data-slick-setting='{
               "slidesToShow": 1,
               "arrows": false,
@@ -393,18 +376,9 @@
                                     Tags: <a href="#">Movado</a>, <a href="#">Omega</a>
                                 </p>
                                 <h3 class="product-title">
-                                    Beats EP Wired On-Ear Headphone-Black
+                                    {{$product->title}}
                                 </h3>
                                 <ul class="list-unstyled">
-                                    <li>Ex Tax: <span class="list-value"> £60.24</span></li>
-                                    <li>
-                                        Brands:
-                                        <a href="#" class="list-value font-weight-bold">
-                                            Canon</a>
-                                    </li>
-                                    <li>
-                                        Product Code: <span class="list-value"> model1</span>
-                                    </li>
                                     <li>
                                         Reward Points: <span class="list-value"> 200</span>
                                     </li>
@@ -413,10 +387,7 @@
                                         <span class="list-value"> In Stock</span>
                                     </li>
                                 </ul>
-                                <div class="price-block">
-                                    <span class="price-new">£73.79</span>
-                                    <del class="price-old">£91.86</del>
-                                </div>
+
                                 <div class="rating-widget">
                                     <div class="rating-block">
                                         <span class="fas fa-star star_on"></span>
@@ -433,23 +404,19 @@
                                 <article class="product-details-article">
                                     <h4 class="sr-only">Product Summery</h4>
                                     <p>
-                                        Long printed dress with thin adjustable straps.
-                                        V-neckline and wiring under the Dust with ruffles at
-                                        the bottom of the dress.
+                                        With its heartwarming story and timeless lessons, "Journey to Self-Discovery"
+                                        invites readers to reflect on their own paths and discover the beauty of the human spirit.
+                                        Whether you seek inspiration or simply enjoy a good tale, this book promises an uplifting and rewarding experience for all.
                                     </p>
                                 </article>
                                 <div class="add-to-cart-row">
                                     <div class="count-input-block">
-                                        <span class="widget-label">Qty</span>
+                                        <span class="widget-label">+</span>
                                         <input type="number" class="form-control text-center" value="1" />
                                     </div>
                                     <div class="add-cart-btn">
                                         <a href="" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
                                     </div>
-                                </div>
-                                <div class="compare-wishlist-row">
-                                    <a href="" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
-                                    <a href="" class="add-link"><i class="fas fa-random"></i>Add to Compare</a>
                                 </div>
                             </div>
                         </div>

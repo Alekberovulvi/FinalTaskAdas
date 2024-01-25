@@ -11,8 +11,10 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="header-search-block">
-                            <input type="text" placeholder="Search entire store here">
-                            <button>Search</button>
+                            <form action="{{ route('client.search') }}" method="GET">
+                                <input type="text" name="query" placeholder="Axtarış" value="{{ isset($query) ? $query : '' }}">
+                                <button type="submit">Search</button>
+                            </form>
                         </div>
                     </div>
                     <d iv class="col-lg-4">
