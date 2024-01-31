@@ -518,3 +518,17 @@ jQuery(document).ready(function($) {
               }
           });
   });
+
+
+  function searchProducts() {
+     let searchInput = document.getElementById("search-input").value;
+
+     axios
+         .get("/search", { params: { query: searchInput } })
+         .then((response) => {
+             console.log(response.data);
+         })
+         .catch((error) => {
+             console.error(error);
+         });
+  }

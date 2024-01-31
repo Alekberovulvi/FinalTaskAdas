@@ -32,7 +32,7 @@ class ProductImgController extends Controller
 
         if ($request->hasFile('file')) {
             unset($data['file']);
-            $img = $request->file('file'); // Doğru dosya alanını al
+            $img = $request->file('file'); 
 
             $extension = $img->getClientOriginalExtension();
             $randomName = Str::random(10);

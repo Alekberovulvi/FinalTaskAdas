@@ -13,7 +13,7 @@
                         <div class="header-search-block">
                             <form action="{{ route('client.search') }}" method="GET">
                                 <input type="text" name="query" placeholder="Axtarış" value="{{ isset($query) ? $query : '' }}">
-                                <button type="submit">Search</button>
+                                <button onclick="searchProducts()">Search</button>
                             </form>
                         </div>
                     </div>

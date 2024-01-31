@@ -18387,6 +18387,11 @@ input[type="number"] {
   min-height: 40px; }
 
 /* -- Category Gallery -- */
+
+.category-gallery-block a img{
+    width: 400px;
+    height: 400px;
+}
 .category-gallery-block {
   overflow: hidden;
   margin-top: -30px; }
@@ -18776,6 +18781,13 @@ input[type="number"] {
         min-height: 35px; }
 
 /* Home -4 Left Sidebar Product List Slider */
+
+.card-image img{
+    width: 400px;
+    height: 400px;
+    gap: 15px;
+}
+
 .home-4-left-sidebar.product-list-slider .product-card {
   padding-left: 0;
   padding-bottom: 15px;
@@ -21516,4 +21528,3 @@ p.form-messege {
     padding: 0 30px 30px; }
 
 
-    

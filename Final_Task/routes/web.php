@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 
 Route::group(['prefix' => '', 'as' => 'client.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
-    Route::get('/search', [SearchController::class, 'index'])->name('search');
+    Route::get('/search', [SearchController::class, 'search'])->name('search');
     Route::get('/shop/{slug?}', [ShopController::class, 'index'])->name('shop');
     Route::get('/product_detail/{id}', [ShopController::class, 'detail'])->name('shop.detail');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 25, 2024 at 09:29 AM
+-- Generation Time: Jan 31, 2024 at 07:17 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -119,7 +119,7 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `title`, `slug`, `up_id`, `created_at`, `updated_at`) VALUES
 (43, 'Biznes, psixologiya, motivasiya', 'biznes-psixologiya-motivasiya', 0, '2023-12-05 05:25:34', '2023-12-05 05:25:34'),
-(47, 'Psixologiya', 'psixologiya', 43, '2023-12-05 05:26:27', '2023-12-26 05:05:40'),
+(47, 'aaaa', 'aaaa', 43, '2023-12-05 05:26:27', '2024-01-29 03:51:11'),
 (48, 'Motivasiya', 'motivasiya', 43, '2023-12-05 05:26:44', '2023-12-26 05:05:55'),
 (54, 'Simba', 'simba', 18, '2023-12-05 05:28:39', '2023-12-05 05:28:39'),
 (60, 'Dördlərin İşarəsi', 'usaq-edebiyyati', 60, '2023-12-05 06:41:01', '2023-12-16 07:34:29'),
@@ -129,6 +129,29 @@ INSERT INTO `categories` (`id`, `title`, `slug`, `up_id`, `created_at`, `updated
 (64, 'Ensiklopediyalar.Təlim', 'ensiklopediyalartelim', 60, '2023-12-05 06:42:01', '2023-12-05 06:42:01'),
 (65, 'Bestseller', 'bestseller', 60, '2023-12-05 06:42:10', '2023-12-05 06:42:10'),
 (91, 'Biznes', 'biznes', 43, '2023-12-26 06:57:50', '2023-12-26 06:58:17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `title`, `address`, `email`, `phone`, `created_at`, `updated_at`) VALUES
+(1, 'Məkan və Təfərrüatlar', 'sdsdsds', 'elekberovulvi520@gmail.com', '+994517295859', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -418,7 +441,8 @@ INSERT INTO `disposals` (`id`, `user_id`, `total`, `created_at`, `updated_at`) V
 (349, 29, '0.00', '2024-01-25 05:10:36', '2024-01-25 05:10:36'),
 (350, 29, '7.00', '2024-01-25 05:15:12', '2024-01-25 05:15:12'),
 (351, 29, '0.00', '2024-01-25 05:16:04', '2024-01-25 05:16:04'),
-(352, 29, '69.00', '2024-01-25 05:17:14', '2024-01-25 05:17:14');
+(352, 29, '69.00', '2024-01-25 05:17:14', '2024-01-25 05:17:14'),
+(353, 27, '54.00', '2024-01-29 03:49:35', '2024-01-29 03:49:35');
 
 -- --------------------------------------------------------
 
@@ -454,7 +478,7 @@ CREATE TABLE `imgs` (
 --
 
 INSERT INTO `imgs` (`id`, `img`, `created_at`, `updated_at`) VALUES
-(13, 'front/assets/image/oZ146Dv6rE.jpeg', '2023-12-07 07:54:04', '2023-12-21 04:56:06'),
+(13, 'front/assets/image/wKcx6pUJHK.jpeg', '2023-12-07 07:54:04', '2024-01-30 08:50:23'),
 (14, 'front/assets/image/kgoRHlBalf.jpeg', '2023-12-07 07:54:23', '2023-12-14 05:48:16'),
 (22, 'front/assets/image/i845I98tP6.jpeg', '2023-12-14 02:22:45', '2023-12-14 07:33:22'),
 (24, 'front/assets/image/PRoq6XFoW2.jpeg', '2023-12-14 05:49:03', '2023-12-14 05:49:03');
@@ -502,7 +526,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (36, '2024_01_06_131023_create_order_items_table', 20),
 (37, '2024_01_23_094811_create_product_details_table', 21),
 (38, '2024_01_24_164051_create_disposals_table', 22),
-(39, '2024_01_24_171340_create_searches_table', 23);
+(39, '2024_01_24_171340_create_searches_table', 23),
+(40, '2024_01_25_111443_create_contacts_table', 24);
 
 -- --------------------------------------------------------
 
@@ -688,8 +713,8 @@ CREATE TABLE `slides` (
 --
 
 INSERT INTO `slides` (`id`, `title`, `image_path`, `created_at`, `updated_at`, `head`) VALUES
-(9, 'Nizami Gəncəvi', 'front/assets/image/NKiayjqYzF.jpeg', '2023-12-13 10:41:21', '2023-12-13 10:42:37', 'Əbu Məhəmməd İlyas ibn Yusif;'),
-(14, 'Albert', 'front/assets/image/7nf3ntGKzb.jpg', '2023-12-14 05:46:37', '2023-12-16 07:53:53', 'Enistein');
+(15, 'De Taleyrand', 'front/assets/image/Pq5flthI9e.png', '2024-01-30 07:51:55', '2024-01-30 08:54:18', 'Taleyran  Məmurları'),
+(16, 'Dünyanı Dəyişdirən', 'front/assets/image/q8kXlFEQJ7.jpg', '2024-01-30 08:51:25', '2024-01-30 09:01:48', '10 Kitab');
 
 -- --------------------------------------------------------
 
@@ -727,7 +752,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `user_status`) VALUES
 (27, 'Ulvi Alekberov', 'alekberovulvi520@gmail.com', NULL, '$2y$12$RTLX9ZcP6Yeoi5uMeZy0e.U/21sF60lQyVaLztPhq0zTDyg7j22Qq', NULL, NULL, NULL, 1),
-(29, 'Alekberov99', 'elekberovulvi520@gmail.com', NULL, '$2y$12$gnM/bvtTpS.7/VbzI9XZf.AsvMYDmGlmgjPeJehrWTGTsCYMowLlu', NULL, '2024-01-25 02:23:59', '2024-01-25 02:23:59', 0);
+(29, 'Alekberov99', 'elekberovulvi520@gmail.com', NULL, '$2y$12$gnM/bvtTpS.7/VbzI9XZf.AsvMYDmGlmgjPeJehrWTGTsCYMowLlu', NULL, '2024-01-25 02:23:59', '2024-01-25 02:23:59', 0),
+(30, 'Ulvi', 'ulvina@code.edu.az', NULL, '$2y$12$pccsrhTJ7VTJmDD9LGh1qeHMLPRkXJMDk8Ctciwp6WRUajExtUheK', NULL, '2024-01-29 03:48:54', '2024-01-29 03:48:54', 0);
 
 --
 -- Indexes for dumped tables
@@ -762,6 +788,12 @@ ALTER TABLE `carts`
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -900,10 +932,16 @@ ALTER TABLE `categories`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `disposals`
 --
 ALTER TABLE `disposals`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=354;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -921,7 +959,7 @@ ALTER TABLE `imgs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -951,7 +989,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `products_imgs`
 --
 ALTER TABLE `products_imgs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `product_details`
@@ -975,7 +1013,7 @@ ALTER TABLE `shopproducts`
 -- AUTO_INCREMENT for table `slides`
 --
 ALTER TABLE `slides`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `updated`
@@ -987,7 +1025,7 @@ ALTER TABLE `updated`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables

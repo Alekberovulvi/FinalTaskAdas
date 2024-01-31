@@ -48,7 +48,7 @@
 
         <div class="form-group">
             <label for="file">Image:</label>
-            <img src="{{asset($productImg->img)}}" alt="">
+            <img style="width: 200px;" src="{{asset($productImg->img)}}" alt="">
             <input type="file" id="file" name="img" required style="width: 50%; padding: 8px;">
         </div>
 

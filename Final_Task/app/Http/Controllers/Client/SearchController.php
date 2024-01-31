@@ -3,20 +3,25 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Products;
+use App\Models\ProductsImg;
 use Illuminate\Http\Request;
 use App\Models\Search;
 
 class SearchController extends Controller
 {
-    public function index(Request $request)
-    {
-        if ($request->has('query')) {
-            $query = $request->input('query');
-            $results = Search::where('title', 'like', '%' . $query . '%')->get();
-        } else {
-            $results = Search::all();
-        }
+    public function index(){
+        return view('search.index');
+    }
 
-        return view('search.index', compact('results'));
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $products = ProductsImg::where('title', 'like', '%' . $query . '%')
+            ->get();
+
+        return view('search', compact('products'));
     }
 }

@@ -21,7 +21,7 @@
                     <tr >
                         <th scope="row">{{ $slide->id }}</th>
                         <th scope="row">
-                            <img src="{{ asset($slide->image_path) }}" alt="">
+                            <img style="width: 200px;" src="{{ asset($slide->image_path) }}" alt="">
                         </th>
                         <th scope="row">{{ $slide->title }}</th>
                         <th scope="row">{{ $slide->head }}</th>

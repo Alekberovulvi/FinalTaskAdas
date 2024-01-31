@@ -19,10 +19,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($product as $img)
+            @foreach($productimgs as $img)
             <tr>
                 <td>{{ $img->id }}</td>
-                <td><img src="{{ asset($img->img) }}" alt="{{ $img->title }}" style="max-width: 100px; max-height: 100px;"></td>
+                <td><img style="width: 200px;" src="{{ asset($img->img) }}" alt="{{ $img->title }}" style="max-width: 100px; max-height: 100px;"></td>
                 <td>{{ $img->author }}</td>
                 <td>{{ $img->title }}</td>
                 <td>{{ $img->price }}</td>

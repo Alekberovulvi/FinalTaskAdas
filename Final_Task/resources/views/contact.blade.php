@@ -30,10 +30,7 @@
             <div class="col-lg-5 col-md-5 col-12">
                 <div class="contact_adress">
                     <div class="ct_address">
-                        <h3 class="ct_title">Location & Details</h3>
-                        <p>It is a long established fact that readewill be distracted by the readable content of
-                            a page when looking
-                            at ilayout.</p>
+                        <h3 class="ct_title">Bizimlə Əlaqə</h3>
                     </div>
                     <div class="address_wrapper">
                         <div class="address">
@@ -41,7 +38,7 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-info-text">
-                                <p><span>Address:</span> 1234 - Bandit Tringi lAliquam <br> Vitae. New York</p>
+                                <p><span>Address:</span> Mərdəkan <br> Körpüsü</p>
                             </div>
                         </div>
                         <div class="address">
@@ -49,7 +46,7 @@
                                 <i class="far fa-envelope"></i>
                             </div>
                             <div class="contact-info-text">
-                                <p><span>Email: </span> support@example.com </p>
+                                <p><span>Email: </span> alekberovulvi520@gmail.com </p>
                             </div>
                         </div>
                         <div class="address">
@@ -57,7 +54,7 @@
                                 <i class="fas fa-mobile-alt"></i>
                             </div>
                             <div class="contact-info-text">
-                                <p><span>Phone:</span> (800) 0123 456 789 </p>
+                                <p><span>Phone:</span> +994517295859 </p>
                             </div>
                         </div>
                     </div>

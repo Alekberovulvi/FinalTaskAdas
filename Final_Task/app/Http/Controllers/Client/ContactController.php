@@ -7,6 +7,7 @@ use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -14,17 +15,4 @@ class ContactController extends Controller
         return view('contact');
     }
 
-    public function send(ContactRequest $request){
-        $validatedData = $request->validate([
-            'con_name' => 'required',
-            'con_email' => 'required|email',
-            'con_phone' => 'nullable|numeric',
-            'con_message' => 'nullable',
-        ]);
-
-        Mail::to('ulvina@code.edu.az')->send(new ContactMail($validatedData));
-
-        return redirect()->back()->with('success', 'Your message has been sent successfully!');
-
-    }
 }
