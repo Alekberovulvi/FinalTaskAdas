@@ -19,7 +19,7 @@
 <main class="inner-page-sec-padding-bottom">
     <div class="container">
         <div class="shop-toolbar mb--30">
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-between">
                 <div class="col-lg-2 col-md-2 col-sm-6">
                     <!-- Product View Mode -->
                     <div class="product-view-mode">
@@ -30,89 +30,19 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-5 col-md-4 col-sm-6  mt--10 mt-sm--0">
-                    <span class="toolbar-status">
-                        Showing 1 to 9 of 14 (2 Pages)
-                    </span>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
                     <div class="sorting-selection">
                         <span>Sort By:</span>
                         <select class="form-control nice-select sort-select mr-0">
                             <option value="" selected="selected">Default Sorting</option>
-                            <option value="">Sort
+                            <option value="a-z">Sort
                                 By:Name (A - Z)</option>
-                            <option value="">Sort
+                            <option value="z-a">Sort
                                 By:Name (Z - A)</option>
-                            <option value="">Sort
+                            <option value="l-h">Sort
                                 By:Price (Low &gt; High)</option>
-                            <option value="">Sort
+                            <option value="h-l">Sort
                                 By:Price (High &gt; Low)</option>
-                            <option value="">Sort
-                                By:Rating (Highest)</option>
-                            <option value="">Sort
-                                By:Rating (Lowest)</option>
-                            <option value="">Sort
-                                By:Model (A - Z)</option>
-                            <option value="">Sort
-                                By:Model (Z - A)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="shop-toolbar d-none">
-            <div class="row align-items-center">
-                <div class="col-lg-2 col-md-2 col-sm-6">
-                    <!-- Product View Mode -->
-                    <div class="product-view-mode">
-                        <a href="#" class="sorting-btn active" data-target="grid"><i class="fas fa-th"></i></a>
-                        <a href="#" class="sorting-btn" data-target="grid-four">
-                            <span class="grid-four-icon">
-                                <i class="fas fa-grip-vertical"></i><i class="fas fa-grip-vertical"></i>
-                            </span>
-                        </a>
-                        <a href="#" class="sorting-btn" data-target="list "><i class="fas fa-list"></i></a>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-md-4 col-sm-6  mt--10 mt-sm--0">
-                    <span class="toolbar-status">
-                        Showing 1 to 9 of 14 (2 Pages)
-                    </span>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6  mt--10 mt-md--0">
-                    <div class="sorting-selection">
-                        <span>Show:</span>
-                        <select class="form-control nice-select sort-select">
-                            <option value="" selected="selected">3</option>
-                            <option value="">9</option>
-                            <option value="">5</option>
-                            <option value="">10</option>
-                            <option value="">12</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
-                    <div class="sorting-selection">
-                        <span>Sort By:</span>
-                        <select class="form-control nice-select sort-select mr-0">
-                            <option value="" selected="selected">Default Sorting</option>
-                            <option value="">Sort
-                                By:Name (A - Z)</option>
-                            <option value="">Sort
-                                By:Name (Z - A)</option>
-                            <option value="">Sort
-                                By:Price (Low &gt; High)</option>
-                            <option value="">Sort
-                                By:Price (High &gt; Low)</option>
-                            <option value="">Sort
-                                By:Rating (Highest)</option>
-                            <option value="">Sort
-                                By:Rating (Lowest)</option>
-                            <option value="">Sort
-                                By:Model (A - Z)</option>
-                            <option value="">Sort
-                                By:Model (Z - A)</option>
                         </select>
                     </div>
                 </div>
@@ -140,7 +70,6 @@
                                         <a href="{{ route('client.add',$product->id)}}" class="single-btn">
                                             <i class="fas fa-shopping-basket"></i>
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
@@ -154,38 +83,6 @@
                         <div class="card-image">
                             <img src="{{ asset('front/assets//image/products/product-3.jpg') }}" alt="">
                         </div>
-                        <div class="product-card--body">
-                            <div class="product-header">
-                                <a href="" class="author">
-                                    Gpple
-                                </a>
-                                <h3><a href="{{route('client.shop.detail', 'slug')}}" tabindex="0">Qpple cPad with Retina Display
-                                        MD510LL/A</a></h3>
-                            </div>
-                            <article>
-                                <h2 class="sr-only">Card List Article</h2>
-                                <p>More room to move. With 80GB or 160GB of storage and up to 40 hours of
-                                    battery life, the new iPod classic
-                                    lets you enjoy
-                                    up to 40,000 songs or..</p>
-                            </article>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                            <div class="rating-block">
-                                <span class="fas fa-star star_on"></span>
-                                <span class="fas fa-star star_on"></span>
-                                <span class="fas fa-star star_on"></span>
-                                <span class="fas fa-star star_on"></span>
-                                <span class="fas fa-star "></span>
-                            </div>
-                            <div class="btn-block">
-                                <a href="" class="btn btn-outlined">Add To Cart</a>
-                                <a href="" class="card-link"><i class="fas fa-random"></i> Add To Cart</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -194,27 +91,8 @@
         </div>
         <!-- Pagination Block -->
 
-        <div class="row pt--30">
-            <div class="col-md-12">
-                <div class="pagination-block">
-                    <ul class="pagination-btns flex-center">
-                        <li><a href="" class="single-btn prev-btn ">|<i class="zmdi zmdi-chevron-left"></i> </a>
-                        </li>
-                        <li><a href="" class="single-btn prev-btn "><i class="zmdi zmdi-chevron-left"></i> </a>
-                        </li>
-                        <li class="active"><a href="" class="single-btn">1</a></li>
-                        <li><a href="" class="single-btn">2</a></li>
-                        <li><a href="" class="single-btn">3</a></li>
-                        <li><a href="" class="single-btn">4</a></li>
-                        <li><a href="" class="single-btn next-btn"><i class="zmdi zmdi-chevron-right"></i></a>
-                        </li>
-                        <li><a href="" class="single-btn next-btn"><i class="zmdi zmdi-chevron-right"></i>|</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
+        {!! $products->withQueryString()->links('pagination::bootstrap-5') !!}
+
     </div>
 </main>
 </div>
@@ -223,3 +101,14 @@
 ===================================== -->
 
 @endsection
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        let url = '{{url()->current()}}';
+        $('.sort-select').on('change', function() {
+            console.log($(this).val());
+            window.location.href = '?sort_by=' + $(this).val();
+        });
+    });
+</script>
+@endpush

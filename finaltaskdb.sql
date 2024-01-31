@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 31, 2024 at 07:17 AM
+-- Generation Time: Jan 31, 2024 at 01:46 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -442,7 +442,8 @@ INSERT INTO `disposals` (`id`, `user_id`, `total`, `created_at`, `updated_at`) V
 (350, 29, '7.00', '2024-01-25 05:15:12', '2024-01-25 05:15:12'),
 (351, 29, '0.00', '2024-01-25 05:16:04', '2024-01-25 05:16:04'),
 (352, 29, '69.00', '2024-01-25 05:17:14', '2024-01-25 05:17:14'),
-(353, 27, '54.00', '2024-01-29 03:49:35', '2024-01-29 03:49:35');
+(353, 27, '54.00', '2024-01-29 03:49:35', '2024-01-29 03:49:35'),
+(354, 27, '228.00', '2024-01-31 03:32:33', '2024-01-31 03:32:33');
 
 -- --------------------------------------------------------
 
@@ -527,7 +528,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (37, '2024_01_23_094811_create_product_details_table', 21),
 (38, '2024_01_24_164051_create_disposals_table', 22),
 (39, '2024_01_24_171340_create_searches_table', 23),
-(40, '2024_01_25_111443_create_contacts_table', 24);
+(40, '2024_01_25_111443_create_contacts_table', 24),
+(41, '2024_01_31_073643_create_orders_table', 25),
+(42, '2024_01_31_073721_create_order_items_table', 26),
+(43, '2024_01_31_083215_insert_qty_into_products_imgs_table', 27),
+(44, '2024_01_31_101552_insert_views_into_products_imgs_table', 28),
+(45, '2024_01_31_103145_create_settings_table', 29);
 
 -- --------------------------------------------------------
 
@@ -537,12 +543,30 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `orders` (
   `id` bigint UNSIGNED NOT NULL,
+  `total_count` int UNSIGNED NOT NULL,
+  `total_price` double NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
-  `total_amount` decimal(8,2) NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `zip_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_notes` text COLLATE utf8mb4_unicode_ci,
+  `is_accepted` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `total_count`, `total_price`, `user_id`, `country`, `city`, `address`, `state`, `zip_code`, `order_number`, `order_notes`, `is_accepted`, `created_at`, `updated_at`) VALUES
+(6, 5, 173, 27, 'Azərbaycan', 'Vero adipisci qui mo', 'Labore quis eum mole', 'Voluptatum eius quia', 'Cupidatat dolor quia', '65ba0b120677a', NULL, 1, '2024-01-31 04:55:46', '2024-01-31 09:36:36'),
+(7, 7, 260, 27, 'Azərbaycan', 'Nostrum qui non comm', 'Sint qui recusandae', 'Dignissimos aliquid', 'Adipisci cumque tene', '65ba0b711ab35', NULL, 0, '2024-01-31 04:57:21', '2024-01-31 09:38:18'),
+(8, 14, 344, 27, 'Azərbaycan', 'Assumenda sed repreh', 'Aut aperiam alias in', 'Aliquam maiores ut e', 'Officia non nihil ad', '65ba4207c6a03', NULL, 1, '2024-01-31 08:50:15', '2024-01-31 09:40:25'),
+(10, 3, 210, 27, 'Azərbaycan', 'Dicta ut molestias s', 'Cum qui nisi non ab', 'Qui nemo molestiae o', 'Ut dolor tempore ad', '65ba4eb5d8a2f', NULL, 1, '2024-01-31 09:44:21', '2024-01-31 09:44:40');
 
 -- --------------------------------------------------------
 
@@ -552,14 +576,34 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `order_items` (
   `id` bigint UNSIGNED NOT NULL,
+  `book_id` bigint UNSIGNED NOT NULL,
   `order_id` bigint UNSIGNED NOT NULL,
-  `product_id` bigint UNSIGNED NOT NULL,
-  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quantity` int NOT NULL,
-  `price` decimal(10,2) NOT NULL,
+  `qty` bigint UNSIGNED NOT NULL,
+  `price` double NOT NULL,
+  `total_price` double NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `book_id`, `order_id`, `qty`, `price`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 1, 6, 3, 25, 81, '2024-01-31 04:55:46', '2024-01-31 04:55:46'),
+(2, 1, 6, 1, 25, 69, '2024-01-31 04:55:46', '2024-01-31 04:55:46'),
+(3, 1, 6, 1, 25, 23, '2024-01-31 04:55:46', '2024-01-31 04:55:46'),
+(4, 1, 7, 2, 25, 50, '2024-01-31 04:57:21', '2024-01-31 04:57:21'),
+(5, 1, 7, 1, 25, 27, '2024-01-31 04:57:21', '2024-01-31 04:57:21'),
+(6, 1, 7, 1, 25, 79, '2024-01-31 04:57:21', '2024-01-31 04:57:21'),
+(7, 1, 7, 1, 25, 28, '2024-01-31 04:57:21', '2024-01-31 04:57:21'),
+(8, 1, 7, 1, 25, 7, '2024-01-31 04:57:21', '2024-01-31 04:57:21'),
+(9, 1, 7, 1, 25, 69, '2024-01-31 04:57:21', '2024-01-31 04:57:21'),
+(10, 10, 8, 6, 27, 162, '2024-01-31 08:50:15', '2024-01-31 08:50:15'),
+(11, 4, 8, 6, 28, 168, '2024-01-31 08:50:15', '2024-01-31 08:50:15'),
+(12, 11, 8, 2, 7, 14, '2024-01-31 08:50:15', '2024-01-31 08:50:15'),
+(13, 1, 9, 1, 25, 25, '2024-01-31 09:10:50', '2024-01-31 09:10:50'),
+(14, 34, 10, 3, 70, 210, '2024-01-31 09:44:21', '2024-01-31 09:44:21');
 
 -- --------------------------------------------------------
 
@@ -620,26 +664,28 @@ CREATE TABLE `products_imgs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `percent` decimal(8,2) NOT NULL,
-  `category_id` bigint UNSIGNED NOT NULL
+  `category_id` bigint UNSIGNED NOT NULL,
+  `qty` int UNSIGNED DEFAULT NULL,
+  `views` int UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products_imgs`
 --
 
-INSERT INTO `products_imgs` (`id`, `author`, `title`, `img`, `price`, `created_at`, `updated_at`, `percent`, `category_id`) VALUES
-(1, 'Napoleon Hill', 'Düşün və Varlan', 'front/assets/image/r3ya0g3yNc.png', '25.00', '2023-12-08 09:31:58', '2023-12-26 07:20:42', '10.00', 91),
-(4, 'Robert Kiosaki', 'Varlı Ata Kasıb Ata', 'front/assets/image/dJfh0obxHA.jpg', '28.00', '2023-12-08 10:18:42', '2023-12-26 07:21:02', '20.00', 91),
-(10, 'Napoleon Hill', 'Zənginliyin Açarı', 'front/assets/image/lz3h1kVviF.jpg', '27.00', '2023-12-14 03:23:31', '2023-12-26 07:21:11', '20.00', 91),
-(11, 'Brian Tracy', 'Bəhanələrə Yox', 'front/assets/image/Aqj5e2ldXF.jpg', '7.00', '2023-12-14 06:01:21', '2023-12-26 07:21:23', '5.00', 91),
-(27, 'Simon Sinck', 'Niyə ilə Başla', 'front/assets/image/OHnvkswqqG.jpeg', '79.00', '2023-12-26 07:27:08', '2023-12-26 07:27:08', '20.00', 47),
-(28, 'Con Keho', 'XXI Əsr Ağılın Gücü', 'front/assets/image/d9COheWYX5.jpeg', '69.00', '2023-12-26 07:31:54', '2023-12-26 07:31:54', '31.00', 47),
-(29, 'Robert Cialdini', 'Inandırma Psixologiyası', 'front/assets/image/2QNN8QKu6A.png', '99.00', '2023-12-26 07:32:56', '2023-12-26 07:48:17', '15.00', 47),
-(30, 'Robert Cialdini', 'Təsir Psixologiyası', 'front/assets/image/V5Jn8KKhEn.jpg', '45.00', '2023-12-26 07:49:16', '2023-12-26 07:49:16', '20.00', 47),
-(31, 'Luiza Hey', '21 Günə həyatını dəyiş', 'front/assets/image/wsIo3ZVMYT.jpg', '44.00', '2023-12-26 07:50:40', '2023-12-26 07:50:40', '20.00', 48),
-(32, 'Con Qordon', 'Şikayətlənməmək Qaydası', 'front/assets/image/i0jHXnOCrO.png', '64.00', '2023-12-26 07:51:27', '2023-12-26 07:51:27', '26.00', 48),
-(33, 'Rayan Holidey', 'Eqo Düşməndir', 'front/assets/image/nfw7SLRhbL.jpg', '23.00', '2023-12-26 07:52:26', '2023-12-26 07:52:26', '14.00', 48),
-(34, 'Daniel Çidiak', 'Kim Deyir ki Bacarmasan', 'front/assets/image/NJB7tXh0fA.jpg', '70.00', '2023-12-26 07:53:28', '2023-12-26 07:53:28', '20.00', 48);
+INSERT INTO `products_imgs` (`id`, `author`, `title`, `img`, `price`, `created_at`, `updated_at`, `percent`, `category_id`, `qty`, `views`) VALUES
+(1, 'Napoleon Hill', 'Düşün və Varlan', 'front/assets/image/r3ya0g3yNc.png', '25.00', '2023-12-08 09:31:58', '2024-01-31 09:10:50', '10.00', 91, 87, 0),
+(4, 'Robert Kiosaki', 'Varlı Ata Kasıb Ata', 'front/assets/image/dJfh0obxHA.jpg', '28.00', '2023-12-08 10:18:42', '2024-01-31 08:50:15', '20.00', 91, 94, 0),
+(10, 'Napoleon Hill', 'Zənginliyin Açarı', 'front/assets/image/lz3h1kVviF.jpg', '27.00', '2023-12-14 03:23:31', '2024-01-31 08:50:15', '20.00', 91, 94, 0),
+(11, 'Brian Tracy', 'Bəhanələrə Yox', 'front/assets/image/Aqj5e2ldXF.jpg', '7.00', '2023-12-14 06:01:21', '2024-01-31 08:50:15', '5.00', 91, 98, 0),
+(27, 'Simon Sinck', 'Niyə ilə Başla', 'front/assets/image/OHnvkswqqG.jpeg', '79.00', '2023-12-26 07:27:08', '2023-12-26 07:27:08', '20.00', 47, 100, 0),
+(28, 'Con Keho', 'XXI Əsr Ağılın Gücü', 'front/assets/image/d9COheWYX5.jpeg', '69.00', '2023-12-26 07:31:54', '2023-12-26 07:31:54', '31.00', 47, 100, 0),
+(29, 'Robert Cialdini', 'Inandırma Psixologiyası', 'front/assets/image/2QNN8QKu6A.png', '99.00', '2023-12-26 07:32:56', '2023-12-26 07:48:17', '15.00', 47, 100, 0),
+(30, 'Robert Cialdini', 'Təsir Psixologiyası', 'front/assets/image/V5Jn8KKhEn.jpg', '45.00', '2023-12-26 07:49:16', '2023-12-26 07:49:16', '20.00', 47, 100, 0),
+(31, 'Luiza Hey', '21 Günə həyatını dəyiş', 'front/assets/image/wsIo3ZVMYT.jpg', '44.00', '2023-12-26 07:50:40', '2023-12-26 07:50:40', '20.00', 48, 100, 0),
+(32, 'Con Qordon', 'Şikayətlənməmək Qaydası', 'front/assets/image/i0jHXnOCrO.png', '64.00', '2023-12-26 07:51:27', '2023-12-26 07:51:27', '26.00', 48, 100, 0),
+(33, 'Rayan Holidey', 'Eqo Düşməndir', 'front/assets/image/nfw7SLRhbL.jpg', '23.00', '2023-12-26 07:52:26', '2023-12-26 07:52:26', '14.00', 48, 100, 0),
+(34, 'Daniel Çidiak', 'Kim Deyir ki Bacarmasan', 'front/assets/image/NJB7tXh0fA.jpg', '70.00', '2023-12-26 07:53:28', '2024-01-31 09:44:21', '20.00', 48, 97, 0);
 
 -- --------------------------------------------------------
 
@@ -678,6 +724,32 @@ CREATE TABLE `searches` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` bigint UNSIGNED NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url_fb` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url_tw` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url_gp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url_yb` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `address`, `phone`, `email`, `url_fb`, `url_tw`, `url_gp`, `url_yb`, `created_at`, `updated_at`) VALUES
+(1, 'Xəzər Mərdəkan', '0517295859', 'elekberovulvi520@gmail.com', 'https://www.facebook.com/', 'https://twitter.com/', 'https://myaccount.google.com/profile', 'https://www.youtube.com/', '2024-01-31 07:13:24', '2024-01-31 07:13:24');
 
 -- --------------------------------------------------------
 
@@ -831,8 +903,7 @@ ALTER TABLE `orders`
 -- Indexes for table `order_items`
 --
 ALTER TABLE `order_items`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `order_items_order_id_foreign` (`order_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `password_reset_tokens`
@@ -870,6 +941,12 @@ ALTER TABLE `product_details`
 -- Indexes for table `searches`
 --
 ALTER TABLE `searches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -941,7 +1018,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `disposals`
 --
 ALTER TABLE `disposals`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=354;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=355;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -959,19 +1036,19 @@ ALTER TABLE `imgs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1004,6 +1081,12 @@ ALTER TABLE `searches`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `shopproducts`
 --
 ALTER TABLE `shopproducts`
@@ -1026,16 +1109,6 @@ ALTER TABLE `updated`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `order_items`
---
-ALTER TABLE `order_items`
-  ADD CONSTRAINT `order_items_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

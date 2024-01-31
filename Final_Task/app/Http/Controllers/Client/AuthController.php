@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
+    public function index()
+    {
+        $user = User::find(auth()->user()->id);
+        if (!$user) {
+            return abort(404);
+        }
+
+        return view("account", compact('user'));
+    }
+
      public function login(){
         return view('login');
     }
@@ -77,4 +87,6 @@ class AuthController extends Controller
 
         return back()->withErrors(['email' => 'Email not found.']);
     }
+
+
 }

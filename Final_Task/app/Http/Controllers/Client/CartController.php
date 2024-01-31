@@ -18,7 +18,7 @@ class CartController extends Controller
     public function add($id)
     {
         $product = ProductsImg::where('id', $id)->first();
-        Cart::add(['id' => '1', 'name' => $product->title, 'qty' => 1, 'price' => $product->price, 'weight' => 550, 'options' => ['size' => 'large', 'image' => $product->img]]);
+        Cart::add(['id' =>$product->id, 'name' => $product->title, 'qty' => 1, 'price' => $product->price, 'weight' => 550, 'options' => ['size' => 'large', 'image' => $product->img]]);
         return redirect()->back();
     }
 
@@ -43,8 +43,21 @@ class CartController extends Controller
         if ($rowId) {
             Cart::update($rowId, $newQty);
         } else {
-            Cart::add(['id' => '1', 'name' => $product->title, 'qty' => 1, 'price' => $product->price, 'weight' => 550, 'options' => ['size' => 'large', 'image' => $product->img]]);
+            Cart::add(['id' => $product->id, 'name' => $product->title, 'qty' => $newQty, 'price' => $product->price, 'weight' => 550, 'options' => ['size' => 'large', 'image' => $product->img]]);
         }
         return redirect()->back();
+    }
+
+    public function updateCart(Request $request)
+    {
+        if ($request->qty) {
+            foreach ($request->qty as $key => $value) {
+                Cart::update($key, $value);
+            }
+
+            return redirect()->back()->with('msgType', 'success')->with('message', 'Cart successfully updated');
+        }
+
+        return redirect()->back()->with('msgType', 'error')->with('message', 'Failed to update cart!');
     }
 }

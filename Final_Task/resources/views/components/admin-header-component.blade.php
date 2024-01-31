@@ -21,7 +21,9 @@
              <a href="@route('images.index')" class="nav-item nav-link @ca('images.index')"><i class="fa fa-table me-2"></i>Şəkillər</a>
              <a href="@route('products.index')" class="nav-item nav-link @ca('products.index')"><i class="fa fa-chart-bar me-2"></i>Products</a>
              <a href="@route('brands.index')" class="nav-item nav-link @ca('brands.index')"><i class="fa fa-chart-bar me-2"></i>Other Img</a>
-             
+             <a href="@route('settings.index')" class="nav-item nav-link @ca('settings.index')"><i class="fa fa-chart-bar me-2"></i>Settings</a>
+             <a href="@route('orders.index')" class="nav-item nav-link @ca('orders.index')"><i class="fa fa-chart-bar me-2"></i>Orders</a>
+
          </div>
      </nav>
  </div>

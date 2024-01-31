@@ -15,9 +15,9 @@ use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\ImgController;
 use App\Http\Controllers\Admin\ProductImgController;
 use App\Http\Controllers\Admin\BrandsController;
-use App\Http\Controllers\Admin\ShopAdminController;
 use App\Http\Controllers\Admin\AdminAuthController;
-
+use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Admin\SettingsController;
 
 Route::group(['prefix' => '', 'as' => 'client.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -31,6 +31,7 @@ Route::group(['prefix' => '', 'as' => 'client.'], function () {
     Route::get("/add-to-cart/{id}", [CartController::class, "add"])->name("add");
     Route::get("/remove-from-cart/{id}", [CartController::class, "remove"])->name("remove");
     Route::post("/cartqty/{id}", [CartController::class, "addtoCart"])->name("cartqty");
+    Route::post("/cart/update", [CartController::class, "updateCart"])->name("cart.update");
 
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/loginPost', [AuthController::class, 'loginPost'])->name('loginPost');
@@ -38,7 +39,6 @@ Route::group(['prefix' => '', 'as' => 'client.'], function () {
     Route::post('/registerPost', [AuthController::class, 'registerPost'])->name('registerPost');
     Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');
     Route::post('/successfull', [CheckOutController::class, 'successfull'])->name('successfull');
-
 });
 
 Route::group(
@@ -46,6 +46,7 @@ Route::group(
         'prefix' => '', 'as' => 'client.', 'middleware' => 'client.auth'
     ],
     function () {
+        Route::get('/account', [AuthController::class, 'index'])->name('account');
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
         Route::get('/resetpassword', [AuthController::class, 'resetpassword'])->name('resetpassword');
         Route::post('/resetpassword', [AuthController::class, 'resetPasswordPost'])->name('passwordreset');
@@ -73,6 +74,15 @@ Route::group(
         Route::resource('/images', ImgController::class);
         Route::resource('/products', ProductImgController::class);
         Route::resource('/brands', BrandsController::class);
-        Route::resource('/shop', ShopAdminController::class);
+        Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+        Route::put('/settings/update', [SettingsController::class, 'update'])->name('settings.update');
+
+        Route::prefix('/orders')->as('orders.')->group(function () {
+            Route::get("", [OrdersController::class, "index"])->name("index");
+            Route::get("/accept/{order}", [OrdersController::class, "accept"])->name("accept");
+            Route::get("/reject/{order}", [OrdersController::class, "reject"])->name("reject");
+            Route::get("/details/{order}", [OrdersController::class, "details"])->name("details");
+            Route::delete("/delete/{order}", [OrdersController::class, "delete"])->name("delete");
+        });
     }
 );

@@ -36,39 +36,6 @@
                             </ul>
                         </div>
                         @endif
-                        <div class="col-12">
-                            <div class="checkout-slidedown-box" id="quick-login">
-                                <div action="./">
-                                    <div class="quick-login-form">
-                                        <p>If you have shopped with us before, please enter your details in the
-                                            boxes below. If you are a new
-                                            customer
-                                            please
-                                            proceed to the Billing & Shipping section.</p>
-                                        <div class="form-group">
-                                            <label for="quick-user">Username or email *</label>
-                                            <input type="text" placeholder="" id="quick-user">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="quick-pass">Password *</label>
-                                            <input type="text" placeholder="" id="quick-pass">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="d-flex align-items-center flex-wrap">
-                                                <a href="#" class="btn btn-outlined   mr-3">Login</a>
-                                                <div class="d-inline-flex align-items-center">
-                                                    <input type="checkbox" id="accept_terms" class="mb-0 mr-1">
-                                                    <label for="accept_terms" class="mb-0">I’ve read and accept
-                                                        the terms &amp; conditions</label>
-                                                </div>
-                                            </div>
-                                            <p><a href="javascript:" class="pass-lost mt-3">Lost your
-                                                    password?</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-lg-7 mb--20">
                             <div id="billing-form" class="mb-40">
                                 <h4 class="checkout-title">Sifariş Ünvanı</h4>
@@ -81,13 +48,9 @@
                                         <label>Soyadınız*</label>
                                         <input type="text" placeholder="Soyadınız" name="lname" required>
                                     </div>
-                                    <div class="col-12 mb--20">
-                                        <label>Şirkət Adı</label>
-                                        <input type="text" placeholder="Şirkət Adı" name="cname">
-                                    </div>
                                     <div class="col-12 col-12 mb--20">
                                         <label>Ölkə*</label>
-                                        <select class="nice-select">
+                                        <select class="nice-select" name="country">
                                             <option>Azərbaycan</option>
                                             <option>Russia</option>
                                             <option>English</option>

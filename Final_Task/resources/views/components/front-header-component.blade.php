@@ -22,7 +22,7 @@
                             @auth
                             <div class="cart-widget">
                                 <div class="login-block">
-                                    <span>{{ auth()->user()->name }}</span>
+                                    <a href="{{ route('client.account') }}">{{ auth()->user()->name }}</a>
                                     <a href="{{ route('client.logout') }}" class="font-weight-bold">Logout</a>
                                 </div>
                                 <div class="cart-block">
@@ -48,7 +48,7 @@
                                                 <div class=" content">
                                                     <h3 class="title"><a href="{{route('client.shop.detail', 'slug')}}">{{$cart->name}}</a>
                                                     </h3>
-                                                    <p class="price"><span class="qty">1 ×</span> ₼{{$cart->price}}</p>
+                                                    <p class="price"><span class="qty">{{$cart->qty}} ×</span> ₼{{$cart->price}}</p>
                                                     <a href="{{ route('client.remove', $cart->rowId)}}" class="cross-btn"><i class="fas fa-times"></i></a>
                                             </div>
                                         </div>
@@ -142,7 +142,7 @@
                         </div>
                         <div class="text">
                             <p>Free Support 24/7</p>
-                            <p class="font-weight-bold number">+994517295859</p>
+                            <p class="font-weight-bold number">{{$settings->phone}}</p>
                         </div>
                     </div>
                 </div>
@@ -307,16 +307,14 @@
             </nav>
             <div class="off-canvas-bottom">
                 <div class="contact-list mb--10">
-                    <a href="" class="sin-contact"><i class="fas fa-mobile-alt"></i>(12345) 78790220</a>
-                    <a href="" class="sin-contact"><i class="fas fa-envelope"></i>examle@handart.com</a>
+                    <a href="" class="sin-contact"><i class="fas fa-mobile-alt"></i>{{$settings->phone}}</a>
+                    <a href="" class="sin-contact"><i class="fas fa-envelope"></i>{{$settings->email}}</a>
                 </div>
                 <div class="off-canvas-social">
-                    <a href="#" class="single-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="single-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="single-icon"><i class="fas fa-rss"></i></a>
-                    <a href="#" class="single-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="single-icon"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="single-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="{{$settings->url_fb}}" class="single-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{$settings->url_tw}}" class="single-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="{{$settings->url_yt}}" class="single-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="{{$settings->url_gp}}" class="single-icon"><i class="fab fa-google-plus-g"></i></a>
                 </div>
             </div>
         </div>
@@ -341,10 +339,8 @@
                         <!-- Shop -->
                         <li class="menu-item has-children mega-menu">
                             <a href="{{ route('client.shop',  $category->slug)}}">shop </a>
-                            <!-- <a href="{{ route('admin.shop.index')}}">shoppp </a> -->
 
                         </li>
-
 
                         <li class="menu-item">
                             <a href="{{ route('client.contact')}}">Contact</a>

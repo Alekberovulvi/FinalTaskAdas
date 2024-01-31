@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use App\Models\Brands;
-
+use App\Models\Setting;
 
 class FrontFooterComponent extends Component
 {
@@ -23,7 +23,8 @@ class FrontFooterComponent extends Component
      */
     public function render(): View|Closure|string
     {
+        $settings = Setting::first();
         $images = Brands::all();
-        return view('components.front-footer-component', compact('images'));
+        return view('components.front-footer-component', compact('images', 'settings'));
     }
 }

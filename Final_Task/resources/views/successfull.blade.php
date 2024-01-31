@@ -26,9 +26,9 @@
                     <p>Sifarişiniz qəbul edildi.</p>
                 </div>
                 <ul class="order-details-list">
-                    <li>Order Number: <strong>{{ uniqid() }}</strong></li>
-                    <li>Date: <strong>{{ now()->format('M d, Y') }}</strong></li>
-                    <li>Total: <strong>₼ {{ $disposal->total }}</strong></li>
+                    <li>Order Number: <strong>{{ $order->order_number }}</strong></li>
+                    <li>Date: <strong>{{ $order->created_at->format('M d, Y') }}</strong></li>
+                    <li>Total: <strong>₼ {{ $order->total_price }}</strong></li>
                 </ul>
                 <h3 class="order-table-title">Order Details</h3>
                 <div class="table-responsive">
@@ -50,7 +50,7 @@
                         <tfoot>
                             <tr>
                                 <th>Subtotal:</th>
-                                <td><span>₼ {{ $disposal->total }}</span></td>
+                                <td><span>₼ {{ $order->total_price }}</span></td>
                             </tr>
                         </tfoot>
                     </table>
